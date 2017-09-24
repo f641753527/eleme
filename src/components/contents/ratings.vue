@@ -87,7 +87,7 @@ export default {
     'ratingselect': ratingselect
   },
   mounted () {
-    this.$http.get('api/ratings').then(function (res) {
+    this.$http.get('https://github.com/f641753527/eleme-online-visit/tree/master/api/ratings.json').then(function (res) {
       let result = res.body;
       if (result.errno === ERR_OK) {
         this.ratings = result.data;

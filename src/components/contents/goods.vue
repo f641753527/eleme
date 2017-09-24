@@ -138,7 +138,8 @@ export default {
     'food': food
   },
   mounted () {
-    this.$http.get('/api/goods').then(function (res) {
+    this.$http.get('https://github.com/f641753527/eleme-online-visit/tree/master/api/goods.json').then(function (res) {
+      console.log(res.body);
       this.goods = res.body.data;
       this.$nextTick(function () {
         this._initScroll();
