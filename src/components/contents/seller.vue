@@ -152,7 +152,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 @import "../../common/stylus/mini.styl";
   .seller
     position: absolute
@@ -268,7 +268,7 @@ export default {
             margin-right: 6px
             width: 120px
             height: 90px
-            &: last-child
+            &:last-child
               margin: 0
     .info
       padding: 18px 18px 0 18px

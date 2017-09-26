@@ -58,7 +58,6 @@ import split from '../split/split';
 import ratingselect from '../ratingselect/ratingselect';
 import {dateFormate} from '../../common/js/date';
 import BScroll from 'better-scroll';
-const ERR_OK = 0;
 const ALL = 2;
 export default {
   data () {
@@ -87,16 +86,17 @@ export default {
     'ratingselect': ratingselect
   },
   mounted () {
-    this.$http.get('https://github.com/f641753527/eleme-online-visit/tree/master/api/ratings.json').then(function (res) {
+    this.$http.jsonp('http://f641753527.3vzhuji.net/eleme/api/ratings.js', {
+      params: {},
+      jsonpCallback: 'pj_support_ratings'
+    }).then(function (res) {
       let result = res.body;
-      if (result.errno === ERR_OK) {
-        this.ratings = result.data;
-        this.$nextTick(function () {
-          this.scroll = new BScroll(this.$refs.ratings, {
-            click: true
-          });
+      this.ratings = result.data;
+      this.$nextTick(function () {
+        this.scroll = new BScroll(this.$refs.ratings, {
+          click: true
         });
-      }
+      });
     });
     this.$root.eventHub.$on('selectChange', function (type) {
       this.copySelectType = type;

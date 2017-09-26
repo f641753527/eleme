@@ -138,8 +138,9 @@ export default {
     'food': food
   },
   mounted () {
-    this.$http.get('https://github.com/f641753527/eleme-online-visit/tree/master/api/goods.json').then(function (res) {
-      console.log(res.body);
+    this.$http.jsonp('http://f641753527.3vzhuji.net/eleme/api/goods.js', {
+      params: {}, jsonpCallback: 'pj_supprot_goods'
+    }).then(function (res) {
       this.goods = res.body.data;
       this.$nextTick(function () {
         this._initScroll();

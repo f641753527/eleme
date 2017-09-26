@@ -37,9 +37,10 @@ export default {
     };
   },
   mounted () {
-    this.$http.get('https://github.com/f641753527/eleme-online-visit/tree/master/api/seller.php').then(function (response) {
-      console.log(response);
-      this.seller = response.body.data;
+    this.$http.jsonp('http://f641753527.3vzhuji.net/eleme/api/seller.js', {
+      params: {}, jsonpCallback: 'pj_support_seller_info'
+    }).then(function (response) {
+      this.seller = response.body;
     });
   }
 };
