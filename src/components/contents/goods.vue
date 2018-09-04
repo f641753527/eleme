@@ -3,19 +3,19 @@
 		<div class="menu-warp" ref='menuWrapper'>
           <ul class="menu-item-warp">
             <li class="menu-item menu-item-hook" v-for="(item, index) in goods" :class='{"active": index === curMenuItem}' 
-            @click="locate(index, $event)">
+            @click="locate(index, $event)" :key='index'>
               <p class='text border-1px'><support-icon v-if="item.type>0" :size="'size3'" :category='classMap[item.type]'></support-icon>{{item.name}}</p>
             </li>
           </ul>
 		</div>
 		<div class="goods-warp" ref='goodsWrapper'>
       <ul class="goods-sort">
-        <li class="goods-item goods-item-hook" v-for="good in goods">
+        <li class="goods-item goods-item-hook" v-for="(good, index2) in goods" :key='index2'>
           <h1 class="goods-name">{{good.name}}</h1>
           <ul class="foods">
-            <li class="food-item border-1px" v-for="food in good.foods" @click='detailOfCurFood(food, $event)'>
+            <li class="food-item border-1px" v-for="(food, index3) in good.foods" :key='index3' @click='detailOfCurFood(food, $event)'>
               <div class="icon">
-                <img width="100%" height="100%"" :src="food.icon">
+                <img width="100%" height="100%" :src="food.icon">
               </div>
               <div class="food-detail">
                 <h2 class="food-name">{{food.name}}</h2>

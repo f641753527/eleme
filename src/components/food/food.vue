@@ -41,7 +41,7 @@
         <div class="rating-wrapper">
           <p class="no-rating" v-show="!currentFood.ratings || !currentFood.ratings.length">暂无评价</p>
           <ul class="ratings" v-show="currentFood.ratings && currentFood.ratings.length">
-            <li class="rating-item border-1px" v-for="rating in selectedRatings">
+            <li class="rating-item border-1px" v-for="(rating, index9) in selectedRatings" :key='index9'>
               <div class="time">{{rating.rateTime | formatDate}}</div>
               <p class="rating-text">
                 <span :class="{'icon-thumb_up': rating.rateType === 0, 'icon-thumb_down': rating.rateType === 1}"></span>

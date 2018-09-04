@@ -32,7 +32,7 @@
         </div>
         <div class="list-content" ref='listContent'>
           <ul>
-            <li class="list-food" v-for="food in selectFoods">
+            <li class="list-food" v-for="(food, key) in selectFoods" :key='key'>
               <h3 class="food-name">{{food.name}}</h3>
               <div class="price-wrapper">￥<span class="price">{{food.price * food.count}}</span></div>
               <div class="cart-control-wrapper">
