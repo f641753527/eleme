@@ -86,7 +86,7 @@ export default {
     'ratingselect': ratingselect
   },
   mounted () {
-    this.$http.jsonp('http://f641753527.3vzhuji.net/eleme/api/ratings.js', {
+    this.$http.post('/api/ratings', {
       params: {},
       jsonpCallback: 'pj_support_ratings'
     }).then(function (res) {

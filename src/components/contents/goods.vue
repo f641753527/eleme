@@ -138,7 +138,7 @@ export default {
     'food': food
   },
   mounted () {
-    this.$http.jsonp('http://f641753527.3vzhuji.net/eleme/api/goods.js', {
+    this.$http.post('/api/goods', {
       params: {}, jsonpCallback: 'pj_supprot_goods'
     }).then(function (res) {
       this.goods = res.body.data;

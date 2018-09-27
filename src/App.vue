@@ -37,10 +37,10 @@ export default {
     };
   },
   mounted () {
-    this.$http.jsonp('http://f641753527.3vzhuji.net/eleme/api/seller.js', {
+    this.$http.post('/api/seller', {
       params: {}, jsonpCallback: 'pj_support_seller_info'
     }).then(function (response) {
-      this.seller = response.body;
+      this.seller = response.body.data;
     });
   }
 };
